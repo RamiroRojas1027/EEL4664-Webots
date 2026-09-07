@@ -34,7 +34,7 @@ JOINT_STEP = 0.04
 def print_help():
     print("\n=== UR5e PLAYGROUND ===")
     print("1-6: select joint | UP/DOWN: move selected joint")
-    print("R: safe reset | D: start dance | S: stop dance")
+    print("R: safe reset | M: start dance | S: stop dance")
     print("P: print pose | H: help")
     print("Click the 3D view if Webots is not receiving your keys.\n")
 
@@ -111,7 +111,7 @@ while robot.step(time_step) != -1:
             q_command = HOME.copy()
             dance_active = False
             print("[RESET] Returning to the safe exploration pose.")
-        elif key in (ord("D"), ord("d")):
+        elif key in (ord("M"), ord("m")):
             # D is intentionally idempotent. Keyboard auto-repeat can enqueue
             # several events for one physical press, so toggling here would
             # sometimes start and immediately stop the dance.
