@@ -9,5 +9,5 @@ Screenshot:
 
 ## Numerical Configuration at One Target
 
-- Target color: Green
+- Target color: `Green`
 - All six values printed by `P`, in order: `q = [-1.7632, -1.8400, 1.8000, -2.8600, -1.0100, -0.000]` rad
