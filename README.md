@@ -1,0 +1,138 @@
+# EEL 4664 - Kinematics and Control of Robotic Systems
+
+## [eel4664-robotics-labs](https://github.com/hoanbklucky/eel4664-robotics-labs-webots-version/tree/main)
+
+This course repository is referred to as **eel4664-robotics-labs**. Use a short local path: `C:\eel4664-robotics-labs` on Windows or `~/eel4664-robotics-labs` on macOS and Ubuntu. Avoid cloud-synchronized and network folders.
+
+### UR5e + Webots laboratory repository
+
+Webots is the simulation and visualization layer. Python and NumPy are the primary implementation tools. Students implement the robotics mathematics explicitly; simulator measurements are used for visualization, experimentation, and validation.
+
+Lecture, in-class work, and homework develop the analytical foundations. The seven simulation labs emphasize:
+
+- implementation and testing;
+- visualizing frames and robot motion;
+- collecting repeatable measurements;
+- comparing predictions with simulated ground truth;
+- quantifying error and controller performance; and
+- integrating multiple robotics algorithms into one system.
+
+ROS 2 and Gazebo remain optional advanced topics.
+
+## Required semester environment
+
+Complete [Lab 00 - Setup](lab00_setup/README.md) before Lab 1. Choose one supported operating system below, then install the common course tools:
+
+- **Windows:** 64-bit Windows 10 or Windows 11;
+- **macOS:** macOS 12 Monterey through macOS 14 Sonoma on Intel or Apple silicon;
+- **Ubuntu:** Ubuntu 24.04 LTS on 64-bit x86-64;
+- stable **Webots R2025a** for the selected operating system; nightly and development builds are unsupported;
+- 64-bit CPython 3.11 or newer;
+- Visual Studio Code;
+- Git; and
+- NumPy and Matplotlib.
+
+Lab 00 covers software installation, Webots Python configuration, and required Webots Tutorials 1 and 4. UR5e-specific work begins in Lab 1.
+
+## Lab 00 completion checklist
+
+- [ ] A supported Windows, macOS, or Ubuntu environment is being used
+- [ ] Webots R2025a launches normally
+- [ ] Python 3.11 or newer is installed
+- [ ] `python --version` or `python3 --version` works
+- [ ] Webots **Python command** points to the verified Python interpreter
+- [ ] Webots Tutorial 1 is complete
+- [ ] The Python-controller portion of Webots Tutorial 4 is complete
+- [ ] A Python controller runs without crashing
+- [ ] NumPy imports successfully
+- [ ] Git and VS Code are available
+
+
+## Required lab roadmap
+
+| Status | Lab | Topic | Robotic mission/outcome |
+|---|---|---|---|
+| Required | 00 | [Software Setup and Webots Basics](lab00_setup/README.md) | install the supported software and complete Webots Tutorials 1 and 4 |
+| Required | 1 | [UR5e Playground](lab01_ur5e_playground/README.md) | control the six joints, reach visual targets, and discover why predictive models are needed |
+| Required | 2 | [UR5e Frames and Forward Kinematics](lab02_webots_ur5e_frames/README.md) | predict tool poses and validate student FK across multiple configurations |
+| Required | 3 | [Inverse Kinematics](lab03_inverse_kinematics/README.md) | reach specified poses using student IK and the tested Lab 2 FK |
+| Required | 4 | [Jacobian, Differential Kinematics, and Singularities](lab04_jacobian_singularities/README.md) | command Cartesian motion and demonstrate degradation near singularity |
+| Required | 5 | [Trajectory Generation and Tracking](lab05_trajectory_tracking/README.md) | execute and compare point-to-point and straight-line motion |
+| Required | 6 | [Dynamics, Joint Control, and Parameter Identification](lab06_dynamics_control_identification/README.md) | track under changed payload/model conditions and identify a parameter |
+| Required | 7 | [Integrated Manipulation / Final Project](lab07_integrated_manipulation/README.md) | complete a repeatable autonomous pick-and-place challenge |
+
+The required sequence is Lab 00 followed by Labs 1 through 7. There are no separate required simulation labs for homogeneous transformations, singularities, dynamics, control, state estimation, parameter identification, or collision planning; those topics are integrated where simulation adds the most value.
+
+## Optional Webots Basics
+
+These simulator-enrichment tutorials are available but are **not prerequisites, graded activities, or required deliverables**:
+
+| Status | Resource | Useful extra practice |
+|---|---|---|
+| Optional | [Tutorial 2 - Modification of the Environment](https://cyberbotics.com/doc/guide/tutorial-2-modification-of-the-environment?version=R2025a) | editing a world, using the Scene Tree, and adding or modifying objects and physical properties |
+| Optional | [Tutorial 3 - Appearance](https://cyberbotics.com/doc/guide/tutorial-3-appearance?version=R2025a) | changing visual properties and inspecting rendering options |
+
+Lab 1 directly teaches the small set of UR5e and world-interaction skills required by the course.
+
+## Required safe workflow
+
+Every required lab provides one tracked `*_starter.wbt`. Labs 2-7 also provide the `diagnostic_minimal` and `diagnostic_devices` controllers for technical experiments.
+
+1. Never overwrite the starter world.
+2. Open the starter paused and immediately use **File -> Save World As...** to make `*_work.wbt`.
+3. In Lab 1, validate **world opens -> playground controller starts -> safe reset works**. In Labs 2-7, validate **world opens -> minimal controller -> devices found -> one joint moves -> full algorithm**.
+4. Keep controllers and mathematical source under Git.
+5. Reset before rerunning; reload/revert or restore from the starter after a bad world edit.
+6. Use [Troubleshooting Webots](docs/TROUBLESHOOTING_WEBOTS.md), including `WEBOTS_SAFE_MODE` recovery, if Webots repeatedly crashes.
+
+Avoid heavy Scene Tree modifications unless environment or collision modeling is part of the stated learning objective.
+
+## Repository layout
+
+```text
+lab00_setup/                                required Lab 00 software setup and Webots basics
+lab01_ur5e_playground/                      required Lab 1
+lab02_webots_ur5e_frames/                   required Lab 2
+lab03_inverse_kinematics/                   required Lab 3
+lab04_jacobian_singularities/               required Lab 4
+lab05_trajectory_tracking/                  required Lab 5
+lab06_dynamics_control_identification/      required Lab 6
+lab07_integrated_manipulation/              required Lab 7 / final project
+docs/                                       shared troubleshooting
+webots/controllers/                         canonical shared controllers
+optional_legacy/previous_lab_sequence/      archived material from the former sequence
+optional_advanced/ros2_gazebo/              optional ROS 2/Gazebo track
+```
+
+## Start here
+
+1. Complete [Lab 00 - Setup](lab00_setup/README.md), including Webots Tutorials 1 and 4.
+2. Complete Labs 1-7 in order. Each technical lab reuses student code and evidence from earlier labs.
+
+The official UR5e sample is prepared at the beginning of Lab 1, not during Lab 00.
+
+## Rules for student implementations
+
+- Keep mathematical functions separate from Webots I/O so they can be unit tested.
+- Do not call Webots or third-party solvers to replace assigned FK, IK, Jacobian, trajectory, dynamics, control, estimation, identification, collision, or planning algorithms.
+- Use simulator joint sensors and Supervisor ground truth only as measurements for validation.
+- Use SI units and state every coordinate-frame convention and joint order.
+- Use `robot.getTime()` for experiment timestamps.
+- Reset to identical initial conditions before comparisons.
+- Record commands, measurements, parameters, controller gains, and random seeds.
+
+## Submission convention
+
+Each lab README defines its required submission. Lab 1 uses one short `answers.md`; technical labs generally submit source code, `answers.md`, quantitative evidence, and enough run instructions to reproduce the result. Do not submit Webots installations, downloaded sample assets, caches, or `*_work.wbt` unless the instructor requests the working world.
+
+## Optional and archived material
+
+- [Optional advanced ROS 2/Gazebo material](optional_advanced/ros2_gazebo/README.md) preserves middleware, TF2, `ros2_control`, and MoveIt exercises.
+- [Previous lab-sequence archive](optional_legacy/previous_lab_sequence/README.md) preserves superseded README/world/controller shells for instructor reference. It is not part of the required sequence.
+
+## References
+
+- [Correll manipulation Lab 0](https://introduction-to-autonomous-robots.github.io/lab-manipulation-introduction.html)
+- [Webots R2025a User Guide](https://cyberbotics.com/doc/guide/index?version=R2025a)
+- Cyberbotics Universal Robots sample and UR5e model
+- *Introduction to Autonomous Robots*
