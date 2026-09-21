@@ -36,8 +36,8 @@ def dh_transform(alpha_previous, a_previous, d, theta):
 
     # Compare the entries below with the matrix in the Lab 2 README.
     # Replace only these two None values with the correct expressions.
-    row_2_column_1 = None  # TODO 1
-    row_3_column_4 = None  # TODO 2
+    row_2_column_1 = s_theta * c_alpha  # TODO 1
+    row_3_column_4 = c_alpha * d  # TODO 2
 
     if row_2_column_1 is None or row_3_column_4 is None:
         raise NotImplementedError("Complete the two marked modified-DH entries")
