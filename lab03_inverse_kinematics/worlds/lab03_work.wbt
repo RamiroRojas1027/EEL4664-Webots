@@ -1,0 +1,288 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "C:/Users/ramro/OneDrive/Documents/Documents/College/4) Fall 2026/A4) Kinematics and Control of Robotic Systems/EEL4664 Webots/webots/vendor/webots_r2025a/projects/robots/universal_robots/protos/UR5e.proto"
+
+WorldInfo {
+  title "EEL 4664 Lab 3 clean UR5e starter"
+  basicTimeStep 8
+}
+Viewpoint {
+  fieldOfView 0.75
+  orientation -0.26196489905513237 -0.4179439992558982 0.869883443427348 5.15
+  position -1.0403188227112738 2.1718610565894183 1.6613406941366209
+}
+Background {
+  skyColor [
+    0.65 0.72 0.82
+  ]
+}
+DirectionalLight {
+  ambientIntensity 0.5
+  direction -0.4 -0.5 -1
+  intensity 2
+}
+Solid {
+  translation 0 0 -0.025
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.38 0.42
+        roughness 0.8
+      }
+      geometry Box {
+        size 3 3 0.05
+      }
+    }
+  ]
+  name "floor"
+  boundingObject Box {
+    size 3 3 0.05
+  }
+}
+DEF WORLD_FRAME_REFERENCE Group {
+  children [
+    Pose {
+      translation 0.12 0 0.012
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.9 0.08 0.08
+            emissiveColor 0.12 0 0
+          }
+          geometry Box {
+            size 0.24 0.008 0.008
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0.12 0.012
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.08 0.8 0.12
+            emissiveColor 0 0.1 0
+          }
+          geometry Box {
+            size 0.008 0.24 0.008
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0 0.12
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.08 0.25 0.95
+            emissiveColor 0 0.02 0.15
+          }
+          geometry Box {
+            size 0.008 0.008 0.24
+          }
+        }
+      ]
+    }
+  ]
+}
+DEF TARGET_A Pose {
+  translation 0.662437 0.349048 0.277152
+  rotation -0.3885460095230685 0.9051120221838433 -0.17263900423129572 2.541619
+  children [
+    Pose {
+      translation 0.0275 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.95 0.08 0.08
+            emissiveColor 0.12 0 0
+          }
+          geometry Box {
+            size 0.055 0.004 0.004
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0.0275 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.08 0.85 0.12
+            emissiveColor 0 0.12 0
+          }
+          geometry Box {
+            size 0.004 0.055 0.004
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0 0.0275
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.08 0.25 0.95
+            emissiveColor 0 0.02 0.15
+          }
+          geometry Box {
+            size 0.004 0.004 0.055
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0.13 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.1 0.95 0.2
+            transparency 0.68
+            emissiveColor 0 0.18 0.02
+          }
+          geometry Sphere {
+            radius 0.022
+            subdivision 2
+          }
+        }
+      ]
+    }
+  ]
+}
+DEF TARGET_B Pose {
+  translation 0.7265 -0.046538 0.294712
+  rotation -0.4524739969908217 0.7985509946892366 -0.39696799735996435 2.128298
+  children [
+    Pose {
+      translation 0.0275 0 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.95 0.08 0.08
+            emissiveColor 0.12 0 0
+          }
+          geometry Box {
+            size 0.055 0.004 0.004
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0.0275 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.08 0.85 0.12
+            emissiveColor 0 0.12 0
+          }
+          geometry Box {
+            size 0.004 0.055 0.004
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0 0.0275
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.08 0.25 0.95
+            emissiveColor 0 0.02 0.15
+          }
+          geometry Box {
+            size 0.004 0.004 0.055
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0.13 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.95 0.15 0.85
+            transparency 0.68
+            emissiveColor 0.16 0 0.12
+          }
+          geometry Sphere {
+            radius 0.022
+            subdivision 2
+          }
+        }
+      ]
+    }
+  ]
+}
+DEF UR5E UR5e {
+  controller "lab03_controller"
+  toolSlot [
+    Pose {
+      translation 0 0.0125 0
+      rotation 1 0 0 -1.57079632679
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.18 0.2 0.24
+            roughness 0.28
+            metalness 0.7
+          }
+          geometry Cylinder {
+            height 0.025
+            radius 0.022
+            subdivision 24
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0.065 0
+      rotation 1 0 0 -1.57079632679
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.04 0.24 0.62
+            roughness 0.32
+            metalness 0.15
+          }
+          geometry Cylinder {
+            height 0.08
+            radius 0.009
+            subdivision 24
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0.1175 0
+      rotation 1 0 0 -1.57079632679
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.18 0.02
+            roughness 0.3
+            emissiveColor 0.25 0.025 0
+          }
+          geometry Cone {
+            bottomRadius 0.01
+            height 0.025
+            subdivision 24
+          }
+        }
+      ]
+    }
+    GPS {
+      name "tool_position"
+    }
+    InertialUnit {
+      name "tool_orientation"
+    }
+    Pose {
+      translation 0 0.13 0
+      children [
+        GPS {
+          name "tool_test_point_position"
+        }
+      ]
+    }
+  ]
+}

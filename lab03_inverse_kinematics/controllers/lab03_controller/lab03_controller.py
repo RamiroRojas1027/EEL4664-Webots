@@ -13,7 +13,7 @@ from lab02_webots_ur5e_frames.src.ur5e_fk_starter import T_6_TOOL, forward_kinem
 from lab03_inverse_kinematics.src.numerical_ik import numerical_ik
 from ur5e_devices import JOINT_NAMES, UR5eDevices
 
-TARGET_LABEL = "A"  # Run once with "A", reset Webots, and then run with "B".
+TARGET_LABEL = "B"  # Run once with "A", reset Webots, and then run with "B".
 TARGET_JOINTS = {
     "A": np.array([0.20, -0.80, 1.00, -1.10, -0.70, 0.30]),
     "B": np.array([-0.30, -0.90, 1.10, -1.40, -1.20, -0.20]),
