@@ -18,7 +18,7 @@ Thumbs.db
 **/frames.gv
 *.wbproj
 *.wbproj.*
-*_work.wbt
+# *_work.wbt
 *.wbt.bad
 *.wbproj.bad
 # webots/vendor/webots_r2025a/

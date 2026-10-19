@@ -1,0 +1,183 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "C:/Users/ramro/OneDrive/Documents/Documents/College/4) Fall 2026/A4) Kinematics and Control of Robotic Systems/EEL4664 Webots/webots/vendor/webots_r2025a/projects/robots/universal_robots/protos/UR5e.proto"
+
+WorldInfo {
+  title "EEL 4664 Lab 2 frames and FK starter"
+  basicTimeStep 8
+}
+Viewpoint {
+  fieldOfView 0.75
+  orientation -0.28331841833616594 -0.45082527299676806 0.8464556970443775 5.078510437113993
+  position -1.1329545598161666 2.4733357471185666 2.23532860111831
+}
+Background {
+  skyColor [
+    0.65 0.72 0.82
+  ]
+}
+DirectionalLight {
+  ambientIntensity 0.5
+  direction -0.4 -0.5 -1
+  intensity 2
+}
+Solid {
+  translation 0 0 -0.025
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.38 0.42
+        roughness 0.8
+      }
+      geometry Box {
+        size 3 3 0.05
+      }
+    }
+  ]
+  name "floor"
+  boundingObject Box {
+    size 3 3 0.05
+  }
+}
+DEF WORLD_FRAME_REFERENCE Group {
+  children [
+    Pose {
+      translation 0.12 0 0.012
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.9 0.08 0.08
+            emissiveColor 0.12 0 0
+          }
+          geometry Box {
+            size 0.24 0.008 0.008
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0.12 0.012
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.08 0.8 0.12
+            emissiveColor 0 0.1 0
+          }
+          geometry Box {
+            size 0.008 0.24 0.008
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0 0.12
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.08 0.25 0.95
+            emissiveColor 0 0.02 0.15
+          }
+          geometry Box {
+            size 0.008 0.008 0.24
+          }
+        }
+      ]
+    }
+  ]
+}
+DEF UR5E UR5e {
+  hidden position_0_0 1.420703019648484e-05
+  hidden rotation_1 0 0 0.9999999999999999 1.4207020590402545e-05
+  hidden position_1_0 -1.1999351714332773
+  hidden linearVelocity_1 -1.1611781988199026e-08 6.171552517296163e-13 2.2696321185654163e-10
+  hidden angularVelocity_1 2.2520152195240423e-11 -1.65511995892194e-10 -4.453484086987254e-07
+  hidden rotation_2 0 1 0 0.37086082856672253
+  hidden position_2_0 1.2000349017082046
+  hidden linearVelocity_2 2.0684329008779974e-07 -3.430094555389871e-08 -5.623767860886795e-08
+  hidden angularVelocity_2 1.2552544283827523e-11 7.361542333413518e-07 -4.4535860862881253e-07
+  hidden rotation_3 0 1 0 1.2000349017082044
+  hidden position_3_0 -1.4999967784529618
+  hidden linearVelocity_3 2.941591823225909e-07 -1.3540612182591414e-07 -2.826435987243346e-07
+  hidden angularVelocity_3 2.879304121712867e-11 1.1326864958215974e-06 -4.4535516281786826e-07
+  hidden rotation_4 0 1 0 0.07079922154703713
+  hidden position_4_0 -1.5699999915286402
+  hidden linearVelocity_4 3.506260354183625e-07 -2.431816265199878e-07 -5.566112970765138e-07
+  hidden angularVelocity_4 4.6083417189796603e-11 1.1692553310130338e-06 -4.453505584396091e-07
+  hidden rotation_5 0 0 -1 1.5699999915286404
+  hidden position_5_0 -7.515581934569582e-09
+  hidden linearVelocity_5 3.4230963537672653e-07 -2.876042061665972e-07 -6.73161071513365e-07
+  hidden angularVelocity_5 5.7095685438613475e-11 1.1692474765516662e-06 -4.453513162990856e-07
+  hidden linearVelocity_6 2.5952135925870646e-07 -2.8535975178888234e-07 -6.672614497040232e-07
+  hidden angularVelocity_6 8.072440514763002e-11 1.1692474647369496e-06 -4.4501885931529805e-07
+  controller "fk_experiment"
+  toolSlot [
+    Pose {
+      translation 0 0.0125 0
+      rotation 1 0 0 -1.57079632679
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.18 0.2 0.24
+            roughness 0.28
+            metalness 0.7
+          }
+          geometry Cylinder {
+            height 0.025
+            radius 0.022
+            subdivision 24
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0.065 0
+      rotation 1 0 0 -1.57079632679
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.04 0.24 0.62
+            roughness 0.32
+            metalness 0.15
+          }
+          geometry Cylinder {
+            height 0.08
+            radius 0.009
+            subdivision 24
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0 0.1175 0
+      rotation 1 0 0 -1.57079632679
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.18 0.02
+            roughness 0.3
+            emissiveColor 0.25 0.025 0
+          }
+          geometry Cone {
+            bottomRadius 0.01
+            height 0.025
+            subdivision 24
+          }
+        }
+      ]
+    }
+    GPS {
+      name "tool_position"
+    }
+    InertialUnit {
+      name "tool_orientation"
+    }
+    Pose {
+      translation 0 0.13 0
+      children [
+        GPS {
+          name "tool_test_point_position"
+        }
+      ]
+    }
+  ]
+}
