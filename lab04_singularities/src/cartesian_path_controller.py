@@ -18,6 +18,5 @@ def cartesian_path_controller(J, pose_error, feedforward_twist, gain):
 
     # TODO 1: commanded twist = supplied feedforward twist + gain * pose error
     # TODO 2: solve J @ joint_rate = commanded twist, then return joint_rate
-    raise NotImplementedError(
-        "Complete the two controller lines using the Lab 4 README hints."
-    )
+    desired_twist = feedforward_twist + gain * pose_error
+    return np.linalg.solve(J, desired_twist)
